@@ -62,8 +62,8 @@ devDependencies:
     specifier: ^0.4.5
     version: 0.4.5(eslint@8.55.0)
   husky:
-    specifier: ^9.0.10
-    version: 9.0.10
+    specifier: ^8.0.0
+    version: 8.0.0
   lint-staged:
     specifier: ^15.2.1
     version: 15.2.1
@@ -1839,9 +1839,9 @@ packages:
     engines: {node: '>=16.17.0'}
     dev: true
 
-  /husky@9.0.10:
-    resolution: {integrity: sha512-TQGNknoiy6bURzIO77pPRu+XHi6zI7T93rX+QnJsoYFf3xdjKOur+IlfqzJGMHIK/wXrLg+GsvMs8Op7vI2jVA==}
-    engines: {node: '>=18'}
+  /husky@8.0.0:
+    resolution: {integrity: sha512-4qbE/5dzNDNxFEkX9MNRPKl5+omTXQzdILCUWiqG/lWIAioiM5vln265/l6I2Zx8gpW8l1ukZwGQeCFbBZ6+6w==}
+    engines: {node: '>=14'}
     hasBin: true
     dev: true
 
