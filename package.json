@@ -38,15 +38,5 @@
     "prettier": "^3.2.4",
     "typescript": "^5.2.2",
     "vite": "^5.0.8"
-  },
-  "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx}": [
-      "eslint --fix"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   }
 }
