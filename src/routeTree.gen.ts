@@ -20,7 +20,6 @@ import { Route as authIndexImport } from './routes/__auth.index'
 // Create Virtual Routes
 
 const publicLoginLazyImport = createFileRoute('/__public/login')()
-const authAboutLazyImport = createFileRoute('/__auth/about')()
 
 // Create/Update Routes
 
@@ -46,13 +45,6 @@ const publicLoginLazyRoute = publicLoginLazyImport
   } as any)
   .lazy(() => import('./routes/__public.login.lazy').then((d) => d.Route))
 
-const authAboutLazyRoute = authAboutLazyImport
-  .update({
-    path: '/about',
-    getParentRoute: () => authRoute,
-  } as any)
-  .lazy(() => import('./routes/__auth.about.lazy').then((d) => d.Route))
-
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
@@ -64,10 +56,6 @@ declare module '@tanstack/react-router' {
     '/__public': {
       preLoaderRoute: typeof publicImport
       parentRoute: typeof rootRoute
-    }
-    '/__auth/about': {
-      preLoaderRoute: typeof authAboutLazyImport
-      parentRoute: typeof authImport
     }
     '/__public/login': {
       preLoaderRoute: typeof publicLoginLazyImport
@@ -83,7 +71,7 @@ declare module '@tanstack/react-router' {
 // Create and export the route tree
 
 export const routeTree = rootRoute.addChildren([
-  authRoute.addChildren([authAboutLazyRoute, authIndexRoute]),
+  authRoute.addChildren([authIndexRoute]),
   publicRoute.addChildren([publicLoginLazyRoute]),
 ])
 

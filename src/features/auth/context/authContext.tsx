@@ -2,8 +2,8 @@ import { createContext, useContext, useMemo, useState } from 'react';
 
 export interface AuthContextInterface {
 	isAuthenticated: boolean;
-	saveUser: (username: string) => void;
-	deleteUser: () => void;
+	login: (username: string) => void;
+	logout: () => void;
 	user: string | null;
 }
 
@@ -14,12 +14,12 @@ const userKey = 'userToken';
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 	const [user, setUser] = useState<string | null>(localStorage.getItem(userKey));
 
-	const saveUser = (val: string) => {
+	const login = (val: string) => {
 		localStorage.setItem(userKey, val);
 		setUser(val);
 	};
 
-	const deleteUser = () => {
+	const logout = () => {
 		localStorage.removeItem(userKey);
 		setUser(null);
 	};
@@ -28,8 +28,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 		() => ({
 			isAuthenticated: !!user,
 			user,
-			saveUser,
-			deleteUser,
+			login,
+			logout,
 		}),
 		[user],
 	);

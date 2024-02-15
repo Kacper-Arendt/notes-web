@@ -16,4 +16,6 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 			<TanStackRouterDevtools />
 		</AppLayout>
 	),
+	// todo add not found
+	notFoundComponent: () => <p>Not found</p>,
 });
