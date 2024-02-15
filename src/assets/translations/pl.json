@@ -1,5 +1,10 @@
 {
   "general": {
     "submit": "Zatwierdź"
+  },
+  "errors": {
+    "fallbackErrorMessage": "Ups! Coś poszło nie tak",
+    "pageNotFound": "Strona nie znaleziona",
+    "pageNotFound-desc": "Przepraszamy, ale szukana strona nie istnieje."
   }
 }

@@ -1,15 +1,34 @@
+import { createRouter, RouterProvider } from '@tanstack/react-router';
+
+// HOOKS
 import { useLangContext } from 'src/shared/internalization/langContext';
-import { t } from 'i18next';
+
+// ROUTES
+import { useAuth } from 'src/features/auth/context/authContext';
+import { routeTree } from './routeTree.gen';
+
+const router = createRouter({
+	routeTree,
+	defaultPreload: 'intent',
+	context: {
+		auth: undefined,
+	},
+});
+
+declare module '@tanstack/react-router' {
+	interface Register {
+		router: typeof router;
+	}
+}
 
 const App = () => {
 	const { onLangChange } = useLangContext();
+	console.log(onLangChange);
+	const auth = useAuth();
 
 	return (
 		<>
-			<p>{t('general.submit')}</p>
-
-			<button onClick={() => onLangChange('pl')}>PL</button>
-			<button onClick={() => onLangChange('en')}>EN</button>
+			<RouterProvider router={router} context={{ auth }} />
 		</>
 	);
 };
