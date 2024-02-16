@@ -8,8 +8,31 @@
 .header{
 	width: 100%;
 	padding: 1rem 0.5rem;
-	background-color: grey;
+	background-color: #3C3B3A;
+	
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
+
+.headerNav{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.75rem;
+}
+
+.navLink{
+	color: hsla(42, 67%, 94%, 0.5);
+	font-size: 1rem;
+	border-bottom: 1px solid transparent;
+}
+
+.navLink[data-status='active']{
+	color: hsla(42, 67%, 94%, 1);
+	border-bottom-color: currentcolor;
+}
+
 .main{
 	flex: 1;
 	overflow: auto;

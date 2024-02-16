@@ -1,11 +1,11 @@
 :root {
     --font-size: 1rem;
-    
+
     --border-radius-mini: 0.25rem;
     --border-radius-small: 0.5rem;
     --border-radius-medium: 0.75rem;
     --border-radius-large: 1rem;
-    
+
     --padding-mini: 0.25rem;
     --padding-small: 0.5rem;
     --padding-medium: 0.75rem;
@@ -27,8 +27,8 @@
     --gray-700: #383838;
     --gray-800: #242424;
     --gray-900: #121212;
-    
-    
+
+
     /* THEME */
     --primary-bg-color: var(--gray-500);
     --secondary-bg-color: var(--gray-700);
@@ -36,11 +36,70 @@
     --primary-text-color: var(--primary-color);
     --secondary-text-color: var(--secondary-color);
     --disabled-text-color: rgba(255, 255, 255, 0.5);
-    
+
     --main-font-size: var(--font-size);
-    
+
     --main-padding: var(--padding-small);
     --main-radius: var(--border-radius-small);
 
-    --bodyColor: #121212;
+    --backgroundColor: #121212;
+}
+
+/* RESET */
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    background-color: var(--backgroundColor);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    line-height: 1.5;
+}
+
+html,
+body,
+#root {
+    height: 100%;
+}
+
+button {
+    cursor: pointer;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
 }

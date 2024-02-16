@@ -16,9 +16,11 @@ import { Route as rootRoute } from './routes/__root'
 import { Route as publicImport } from './routes/__public'
 import { Route as authImport } from './routes/__auth'
 import { Route as authIndexImport } from './routes/__auth.index'
+import { Route as authTasksImport } from './routes/__auth.tasks'
 
 // Create Virtual Routes
 
+const publicRegisterLazyImport = createFileRoute('/__public/register')()
 const publicLoginLazyImport = createFileRoute('/__public/login')()
 
 // Create/Update Routes
@@ -38,12 +40,24 @@ const authIndexRoute = authIndexImport.update({
   getParentRoute: () => authRoute,
 } as any)
 
+const publicRegisterLazyRoute = publicRegisterLazyImport
+  .update({
+    path: '/register',
+    getParentRoute: () => publicRoute,
+  } as any)
+  .lazy(() => import('./routes/__public.register.lazy').then((d) => d.Route))
+
 const publicLoginLazyRoute = publicLoginLazyImport
   .update({
     path: '/login',
     getParentRoute: () => publicRoute,
   } as any)
   .lazy(() => import('./routes/__public.login.lazy').then((d) => d.Route))
+
+const authTasksRoute = authTasksImport.update({
+  path: '/tasks',
+  getParentRoute: () => authRoute,
+} as any)
 
 // Populate the FileRoutesByPath interface
 
@@ -57,8 +71,16 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof publicImport
       parentRoute: typeof rootRoute
     }
+    '/__auth/tasks': {
+      preLoaderRoute: typeof authTasksImport
+      parentRoute: typeof authImport
+    }
     '/__public/login': {
       preLoaderRoute: typeof publicLoginLazyImport
+      parentRoute: typeof publicImport
+    }
+    '/__public/register': {
+      preLoaderRoute: typeof publicRegisterLazyImport
       parentRoute: typeof publicImport
     }
     '/__auth/': {
@@ -71,8 +93,8 @@ declare module '@tanstack/react-router' {
 // Create and export the route tree
 
 export const routeTree = rootRoute.addChildren([
-  authRoute.addChildren([authIndexRoute]),
-  publicRoute.addChildren([publicLoginLazyRoute]),
+  authRoute.addChildren([authTasksRoute, authIndexRoute]),
+  publicRoute.addChildren([publicLoginLazyRoute, publicRegisterLazyRoute]),
 ])
 
 /* prettier-ignore-end */

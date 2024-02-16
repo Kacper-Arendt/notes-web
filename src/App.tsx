@@ -1,11 +1,8 @@
 import { createRouter, RouterProvider } from '@tanstack/react-router';
 
-// HOOKS
-import { useLangContext } from 'src/shared/internalization/langContext';
-
 // ROUTES
 import { useAuth } from 'src/features/auth/context/authContext';
-import { routeTree } from './routeTree.gen';
+import { routeTree } from 'src/routeTree.gen';
 
 const router = createRouter({
 	routeTree,
@@ -22,15 +19,9 @@ declare module '@tanstack/react-router' {
 }
 
 const App = () => {
-	const { onLangChange } = useLangContext();
-	console.log(onLangChange);
 	const auth = useAuth();
 
-	return (
-		<>
-			<RouterProvider router={router} context={{ auth }} />
-		</>
-	);
+	return <RouterProvider router={router} context={{ auth }} />;
 };
 
 export default App;
