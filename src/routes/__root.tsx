@@ -3,7 +3,7 @@ import { TanStackRouterDevtools } from '@tanstack/router-devtools';
 
 // COMPONENTS
 import { AppLayout } from 'src/components/layout/AppLayout';
-import { AuthContextInterface } from 'src/features/auth/context/authContext';
+import { AuthContextInterface } from 'src/features/auth/models';
 
 interface MyRouterContext {
 	auth: AuthContextInterface | undefined;

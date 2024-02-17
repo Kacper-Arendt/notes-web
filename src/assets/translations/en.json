@@ -1,10 +1,23 @@
 {
   "general": {
-    "submit": "Submit"
+    "submit": "Submit",
+    "name": "Name",
+    "username": "Username",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "userCreated": "User created successfully"
   },
   "errors": {
     "fallbackErrorMessage": "Oops! Something went wrong",
     "pageNotFound": "Page Not Found",
-    "pageNotFound-desc": "Sorry, the page you are looking for does not exist."
+    "pageNotFound-desc": "Sorry, the page you are looking for does not exist.",
+    "passwordDoNotMatch": "Password does not match"
+  },
+  "routes": {
+    "register": "Register",
+    "login": "Login",
+    "tasks": "Tasks",
+    "notes": "Notes"
   }
 }

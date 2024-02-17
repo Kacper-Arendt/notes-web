@@ -1,10 +1,23 @@
 {
   "general": {
-    "submit": "Zatwierdź"
+    "submit": "Zatwierdź",
+    "name": "Nazwa",
+    "username": "Nazwa użytkownika",
+    "email": "Adres e-mail",
+    "password": "Hasło",
+    "confirmPassword": "Potwierdź hasło",
+    "userCreated": "Użytkownik utworzony pomyślnie"
   },
   "errors": {
     "fallbackErrorMessage": "Ups! Coś poszło nie tak",
     "pageNotFound": "Strona nie znaleziona",
-    "pageNotFound-desc": "Przepraszamy, ale szukana strona nie istnieje."
+    "pageNotFound-desc": "Przepraszamy, ale szukana strona nie istnieje.",
+    "passwordDoNotMatch": "Hasła się różnią"
+  },
+  "routes": {
+    "register": "Rejestracja",
+    "login": "Logowanie",
+    "tasks": "Zadania",
+    "notes": "Notatki"
   }
 }

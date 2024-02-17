@@ -9,15 +9,16 @@ import { useAuth } from 'src/features/auth/context/authContext';
 
 // STYLES
 import s from 'src/components/layout/appLayout.module.css';
+import { t } from 'i18next';
 
 const routes = [
 	// PROTECTED
-	{ to: '/', title: 'Notes', protected: true },
-	{ to: 'tasks', title: 'Tasks', protected: true },
+	{ to: '/', title: t('routes.notes'), protected: true },
+	{ to: 'tasks', title: t('routes.tasks'), protected: true },
 
 	// PUBLIC
-	{ to: 'login', title: 'Login', protected: false },
-	{ to: 'register', title: 'Register', protected: false },
+	{ to: 'login', title: t('routes.login'), protected: false },
+	{ to: 'register', title: t('routes.register'), protected: false },
 ];
 
 export const Header = () => {

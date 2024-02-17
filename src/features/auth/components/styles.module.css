@@ -1,0 +1,29 @@
+.authLayout {
+    --content-max-width: 25rem;
+    --padding-inline: 2.5rem;
+
+    display: flex;
+    height: 100%;
+    width: min(var(--content-max-width), 100% - var(--padding-inline));
+    margin: auto;
+}
+
+.registerFormWrapper {
+    display: flex;
+    flex-direction:column;
+    gap: 1rem;
+    margin: auto;
+    padding: 1rem;
+    border: 1px solid var(--gray-700);
+    border-radius: var(--border-radius-medium);
+    background-color: var(--gray-800);
+    flex: 1;
+}
+
+.form {
+    display: flex;
+    flex-direction:column;
+    gap: .5rem;
+    width: 100%;
+}
+

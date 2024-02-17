@@ -1,11 +1,12 @@
 import { createContext, useContext, useMemo, useState } from 'react';
+import { t } from 'i18next';
+import { toast } from 'react-toastify';
 
-export interface AuthContextInterface {
-	isAuthenticated: boolean;
-	login: (username: string) => void;
-	logout: () => void;
-	user: string | null;
-}
+// MODELS
+import { AuthContextInterface, RegisterInterface } from 'src/features/auth/models';
+
+// API
+import { register } from 'src/features/auth/api';
 
 const AuthContext = createContext<AuthContextInterface | null>(null);
 
@@ -24,12 +25,18 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 		setUser(null);
 	};
 
+	const registerUser = async (data: RegisterInterface) => {
+		const resp = await register(data);
+		if (resp.success) toast.success(t('general.userCreated'));
+	};
+
 	const contextValue = useMemo(
 		() => ({
 			isAuthenticated: !!user,
 			user,
 			login,
 			logout,
+			registerUser,
 		}),
 		[user],
 	);
