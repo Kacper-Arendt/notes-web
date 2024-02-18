@@ -19,7 +19,7 @@ const signInFormSchema = z.object({
 
 type SignInFormInterface = z.infer<typeof signInFormSchema>;
 
-export const LoginForm = () => {
+export const LoginForm = ({ onSuccess }: { onSuccess?: () => void }) => {
 	const form = useForm({
 		schema: signInFormSchema,
 		defaultValues: {
@@ -33,7 +33,7 @@ export const LoginForm = () => {
 		<FormWrapper title={t('routes.login')}>
 			{/* TODO FIX FORM RETURN TYPE */}
 			{/* @ts-ignore */}
-			<Form form={form} onSubmit={(data: SignInFormInterface) => loginUser(data)} className={s.form}>
+			<Form form={form} onSubmit={(data: SignInFormInterface) => loginUser(data, onSuccess)} className={s.form}>
 				<Input name="email" type="email" control={form.control} label={t('general.email')} />
 				<Input name="password" type="password" control={form.control} label={t('general.password')} />
 				<Button type="submit" loading={false} variant="contained">

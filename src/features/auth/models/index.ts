@@ -1,6 +1,6 @@
 export interface AuthContextInterface {
 	isAuthenticated: boolean;
-	loginUser: (data: LoginRequestInterface) => void;
+	loginUser: (val: LoginRequestInterface, onSuccess?: () => void) => void;
 	logout: () => void;
 	token: string | null;
 	registerUser: (data: RegisterInterface) => void;

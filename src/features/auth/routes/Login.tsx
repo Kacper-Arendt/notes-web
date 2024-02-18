@@ -1,23 +1,21 @@
 import { getRouteApi, useNavigate } from '@tanstack/react-router';
-import { useEffect } from 'react';
-
-// HOOKS
-import { useAuth } from 'src/features/auth/context/authContext';
 
 // COMPONENTS
 import { LoginForm } from 'src/features/auth/components/LoginForm';
 import { AuthLayout } from 'src/features/auth/components/AuthLayout';
+import { useEffect } from 'react';
+import { useAppStore } from 'src/store';
 
 const routeApi = getRouteApi('/__public/login');
 
 export const Login = () => {
-	const { isAuthenticated } = useAuth();
+	const { accessToken } = useAppStore();
 	const params = routeApi.useSearch<{ redirect?: string }>();
 	const navigate = useNavigate({ from: '/__public/login' });
 
 	useEffect(() => {
-		if (isAuthenticated) navigate({ to: params?.redirect ?? '/' });
-	}, [isAuthenticated, params?.redirect]);
+		if (accessToken) navigate({ to: params?.redirect ?? '/' });
+	}, [accessToken, params?.redirect]);
 
 	return (
 		<AuthLayout>

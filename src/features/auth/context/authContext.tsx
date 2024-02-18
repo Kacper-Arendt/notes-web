@@ -1,4 +1,4 @@
-import { createContext, useContext, useMemo, useState } from 'react';
+import { createContext, useContext, useMemo } from 'react';
 import { t } from 'i18next';
 import { toast } from 'react-toastify';
 
@@ -7,25 +7,25 @@ import { AuthContextInterface, LoginRequestInterface, RegisterInterface } from '
 
 // API
 import { login, register } from 'src/features/auth/api';
+import { useAppStore } from 'src/store';
+
+// STORE
 
 const AuthContext = createContext<AuthContextInterface | null>(null);
 
-const userKey = 'userToken';
-
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-	const [token, setToken] = useState<string | null>(localStorage.getItem(userKey));
+	const { clearAccessToken, addAccessToken, accessToken } = useAppStore();
 
-	const loginUser = async (val: LoginRequestInterface) => {
+	const loginUser = async (val: LoginRequestInterface, onSuccess?: () => void) => {
 		const resp = await login(val);
 		if (resp) {
-			localStorage.setItem(userKey, resp.token);
-			setToken(resp.token);
+			addAccessToken(resp.token);
+			if (onSuccess) onSuccess();
 		}
 	};
 
 	const logout = () => {
-		localStorage.removeItem(userKey);
-		setToken(null);
+		clearAccessToken();
 	};
 
 	const registerUser = async (data: RegisterInterface) => {
@@ -35,13 +35,13 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
 	const contextValue = useMemo(
 		() => ({
-			isAuthenticated: !!token,
-			token,
+			isAuthenticated: !!accessToken,
+			token: accessToken,
 			loginUser,
 			logout,
 			registerUser,
 		}),
-		[token],
+		[accessToken],
 	);
 
 	return <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>;

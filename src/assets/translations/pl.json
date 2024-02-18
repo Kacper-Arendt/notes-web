@@ -6,7 +6,8 @@
     "email": "Adres e-mail",
     "password": "Hasło",
     "confirmPassword": "Potwierdź hasło",
-    "userCreated": "Użytkownik utworzony pomyślnie"
+    "userCreated": "Użytkownik utworzony pomyślnie",
+    "retry": "Spróbuj ponownie"
   },
   "errors": {
     "fallbackErrorMessage": "Ups! Coś poszło nie tak",

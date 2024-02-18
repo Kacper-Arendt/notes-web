@@ -1,0 +1,27 @@
+.loader {
+    aspect-ratio: 1;
+    border: 0.15rem solid var(--gray-100);
+    border-bottom-color: var(--success-color);
+    border-radius: 50%;
+    animation: rotation 1s linear infinite;
+}
+
+/*@keyframes rotation {*/
+/*    0% {*/
+/*        transform: rotate(0deg);*/
+/*    }*/
+/*    100% {*/
+/*        transform: rotate(360deg);*/
+/*    }*/
+/*}*/
+
+.sm {
+     width: 1rem;
+ }
+
+.md {
+     width: 2.5rem;
+ }
+.lg {
+     width: 4rem;
+ }

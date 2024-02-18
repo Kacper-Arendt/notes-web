@@ -6,7 +6,8 @@
     "email": "Email",
     "password": "Password",
     "confirmPassword": "Confirm Password",
-    "userCreated": "User created successfully"
+    "userCreated": "User created successfully",
+    "retry": "Retry"
   },
   "errors": {
     "fallbackErrorMessage": "Oops! Something went wrong",
