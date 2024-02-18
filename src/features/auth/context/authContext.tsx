@@ -3,26 +3,29 @@ import { t } from 'i18next';
 import { toast } from 'react-toastify';
 
 // MODELS
-import { AuthContextInterface, RegisterInterface } from 'src/features/auth/models';
+import { AuthContextInterface, LoginRequestInterface, RegisterInterface } from 'src/features/auth/models';
 
 // API
-import { register } from 'src/features/auth/api';
+import { login, register } from 'src/features/auth/api';
 
 const AuthContext = createContext<AuthContextInterface | null>(null);
 
 const userKey = 'userToken';
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-	const [user, setUser] = useState<string | null>(localStorage.getItem(userKey));
+	const [token, setToken] = useState<string | null>(localStorage.getItem(userKey));
 
-	const login = (val: string) => {
-		localStorage.setItem(userKey, val);
-		setUser(val);
+	const loginUser = async (val: LoginRequestInterface) => {
+		const resp = await login(val);
+		if (resp) {
+			localStorage.setItem(userKey, resp.token);
+			setToken(resp.token);
+		}
 	};
 
 	const logout = () => {
 		localStorage.removeItem(userKey);
-		setUser(null);
+		setToken(null);
 	};
 
 	const registerUser = async (data: RegisterInterface) => {
@@ -32,22 +35,22 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
 	const contextValue = useMemo(
 		() => ({
-			isAuthenticated: !!user,
-			user,
-			login,
+			isAuthenticated: !!token,
+			token,
+			loginUser,
 			logout,
 			registerUser,
 		}),
-		[user],
+		[token],
 	);
 
 	return <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>;
 };
 
-export function useAuth() {
+export const useAuth = () => {
 	const context = useContext(AuthContext);
 
 	if (!context) throw new Error('useAuth must be used within an AuthProvider');
 
 	return context;
-}
+};

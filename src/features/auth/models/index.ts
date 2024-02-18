@@ -1,8 +1,8 @@
 export interface AuthContextInterface {
 	isAuthenticated: boolean;
-	login: (username: string) => void;
+	loginUser: (data: LoginRequestInterface) => void;
 	logout: () => void;
-	user: string | null;
+	token: string | null;
 	registerUser: (data: RegisterInterface) => void;
 }
 
@@ -10,4 +10,13 @@ export interface RegisterInterface {
 	email: string;
 	password: string;
 	passwordConfirm: string;
+}
+
+export interface LoginRequestInterface {
+	email: string;
+	password: string;
+}
+
+export interface LoginResponseInterface {
+	token: string;
 }

@@ -1,5 +1,6 @@
 import { ErrorBoundary } from 'react-error-boundary';
 import { Link } from '@tanstack/react-router';
+import { t } from 'i18next';
 
 // COMPONENTS
 import { FallbackError } from 'src/components/errors/FallbackError';
@@ -9,7 +10,6 @@ import { useAuth } from 'src/features/auth/context/authContext';
 
 // STYLES
 import s from 'src/components/layout/appLayout.module.css';
-import { t } from 'i18next';
 
 const routes = [
 	// PROTECTED
