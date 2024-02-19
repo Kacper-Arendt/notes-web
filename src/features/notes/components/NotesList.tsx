@@ -1,3 +1,5 @@
+import { t } from 'i18next';
+
 // HOOKS
 import { useNotesQuery } from 'src/features/notes/api/getNotes';
 
@@ -18,10 +20,15 @@ export const NotesList = () => {
 	if (!data) return null;
 
 	return (
-		<div className={s.notesList}>
-			{data.map((note) => (
-				<NotesListItem key={note.id} {...note} />
-			))}
+		<div>
+			<p>
+				{t('general.totalCount')}: ${data.length}
+			</p>
+			<div className={s.notesList}>
+				{data.map((note) => (
+					<NotesListItem key={note.id} {...note} />
+				))}
+			</div>
 		</div>
 	);
 };

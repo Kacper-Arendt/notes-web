@@ -1,9 +1,14 @@
 import { ErrorBoundary } from 'react-error-boundary';
 import { Link } from '@tanstack/react-router';
+import clsx from 'clsx';
 import { t } from 'i18next';
+
+// HOOKS
+import { useToggle } from 'src/shared/hooks/useToggle';
 
 // COMPONENTS
 import { FallbackError } from 'src/components/errors/FallbackError';
+import { ToggleMenuButton } from 'src/components/buttons/ToggleMenuButton';
 
 // HOOKS
 import { useAuth } from 'src/features/auth/context/authContext';
@@ -21,13 +26,15 @@ const routes = [
 	{ to: 'register', title: t('routes.register'), protected: false },
 ];
 
-export const Header = () => {
+export const Menu = () => {
 	const { isAuthenticated } = useAuth();
+	const { on, toggle } = useToggle();
 
 	return (
 		<ErrorBoundary FallbackComponent={FallbackError}>
-			<header className={s.header}>
-				<nav className={s.headerNav}>
+			<ToggleMenuButton isOpen={on} setIsOpen={toggle} className={s.toggleButton} />
+			<aside className={clsx(s.menu, { [s.menuOpen]: on })}>
+				<nav className={clsx(s.menuNav, { [s.menuNavOpen]: on })}>
 					{routes
 						.filter((el) => el.protected === isAuthenticated)
 						.map(({ to, title }) => (
@@ -36,7 +43,7 @@ export const Header = () => {
 							</Link>
 						))}
 				</nav>
-			</header>
+			</aside>
 		</ErrorBoundary>
 	);
 };
