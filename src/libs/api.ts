@@ -27,6 +27,11 @@ api.interceptors.response.use(
 		const message = error?.response?.data || error?.message;
 		if (message) toast.error(message);
 		logger.error(error?.name ?? 'axios error', error);
+
+		if (error.code === 'ERR_BAD_REQUEST') {
+			const { clearAccessToken } = useAppStore.getState();
+			clearAccessToken();
+		}
 		return Promise.reject(error);
 	},
 );

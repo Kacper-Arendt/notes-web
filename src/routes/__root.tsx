@@ -1,5 +1,6 @@
 import { createRootRouteWithContext, Outlet } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/router-devtools';
+import { ToastContainer } from 'react-toastify';
 
 // COMPONENTS
 import { AppLayout } from 'src/components/layout/AppLayout';
@@ -14,6 +15,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
 		<AppLayout>
 			<Outlet />
 			<TanStackRouterDevtools />
+			<ToastContainer />
 		</AppLayout>
 	),
 	// todo add not found

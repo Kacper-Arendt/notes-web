@@ -20,9 +20,9 @@ export const NotesList = () => {
 	if (!data) return null;
 
 	return (
-		<div>
-			<p>
-				{t('general.totalCount')}: ${data.length}
+		<div className={s.notesListWrapper}>
+			<p className={s.notesListCount}>
+				{t('general.totalCount')}: {data.length}
 			</p>
 			<div className={s.notesList}>
 				{data.map((note) => (

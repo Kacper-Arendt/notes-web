@@ -7,7 +7,12 @@
     "password": "Hasło",
     "confirmPassword": "Potwierdź hasło",
     "userCreated": "Użytkownik utworzony pomyślnie",
-    "retry": "Spróbuj ponownie"
+    "retry": "Spróbuj ponownie",
+    "totalCount": "Całkowita liczba",
+    "add": "Dodaj",
+    "createdSuccessfully": "Utworzono pomyślnie",
+    "click": "Kliknij",
+    "createNote": "Utwórz notatkę"
   },
   "errors": {
     "fallbackErrorMessage": "Ups! Coś poszło nie tak",

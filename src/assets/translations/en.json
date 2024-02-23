@@ -7,7 +7,12 @@
     "password": "Password",
     "confirmPassword": "Confirm Password",
     "userCreated": "User created successfully",
-    "retry": "Retry"
+    "retry": "Retry",
+    "totalCount": "Total count",
+    "add": "Add",
+    "createdSuccessfully": "Created successfully",
+    "click": "Click",
+    "createNote": "Create note"
   },
   "errors": {
     "fallbackErrorMessage": "Oops! Something went wrong",
