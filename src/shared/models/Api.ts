@@ -6,7 +6,7 @@ export type AsyncReturnType<Target extends AsyncFunction> = Awaited<ReturnType<T
 
 export interface ApiQueryOptionsInterface<QueryType extends (...args: any) => any, Params> {
 	config?: QueryConfig<QueryType>;
-	params?: Omit<Params, 'signal'>;
+	params: Omit<Params, 'signal'>;
 }
 
 export interface ApiConfigInterface {

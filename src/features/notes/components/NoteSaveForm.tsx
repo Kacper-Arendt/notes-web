@@ -32,7 +32,6 @@ export const NoteSaveForm = ({
 
 	return (
 		<Form form={form} onSubmit={onSubmit} className={s.noteSaveForm}>
-			<p>{t('general.createNote')}</p>
 			<Input control={form.control} name="name" type="text" />
 			<Input control={form.control} name="content" type="text" />
 			<Button type="submit">{t('general.submit')}</Button>
