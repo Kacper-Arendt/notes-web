@@ -44,7 +44,7 @@ export const RegisterForm = () => {
 				<Input name="email" type="email" control={form.control} label={t('general.email')} />
 				<Input name="password" type="password" control={form.control} label={t('general.password')} />
 				<Input name="passwordConfirm" type="password" control={form.control} label={t('general.confirmPassword')} />
-				<Button type="submit" loading={false} variant="contained">
+				<Button type="submit" loading={false} intent="primary">
 					{t('general.submit')}
 				</Button>
 			</Form>

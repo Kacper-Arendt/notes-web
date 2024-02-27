@@ -1,37 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
-    --border-radius-mini: 0.25rem;
     --border-radius-small: 0.5rem;
     --border-radius-medium: 0.75rem;
-    --border-radius-large: 1rem;
-
-    --padding-mini: 0.25rem;
-    --padding-small: 0.5rem;
-    --padding-medium: 0.75rem;
-    --padding-large: 1rem;
 
     --primary-color: #fff;
-    --secondary-color: rgba(255, 255, 255, 0.7);
 
     --success-color: #28a745;
     --warning-color: #ffc107;
     --error-color: #dc3545;
 
     --gray-100: #f7fafc;
-    --gray-200: #e1e4e8;
-    --gray-300: #c4c4c4;
-    --gray-400: #a8a8a8;
     --gray-500: #737373;
     --gray-600: #555555;
     --gray-700: #383838;
     --gray-800: #242424;
-    --gray-850: #1A1A1A; 
-    --gray-900: #121212;
 
 
     /* THEME */
     --primary-text-color: var(--primary-color);
-    --secondary-text-color: var(--secondary-color);
-    --disabled-text-color: rgba(255, 255, 255, 0.5);
     --backgroun-color: #121212;
     
     --nav-bg-color: #3C3B3A;

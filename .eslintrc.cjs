@@ -3,7 +3,7 @@ module.exports = {
   env: { browser: true, es2020: true },
   extends: ['airbnb', 'airbnb-typescript', 'prettier'],
 
-  ignorePatterns: ['dist', '.eslintrc.cjs'],
+  ignorePatterns: ['dist', '.eslintrc.cjs', 'postcss.config.js', "tailwind.config.js"],
   parser: '@typescript-eslint/parser',
   plugins: ['react-refresh', 'prettier'],
   parserOptions: {

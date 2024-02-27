@@ -36,7 +36,7 @@ export const LoginForm = ({ onSuccess }: { onSuccess?: () => void }) => {
 			<Form form={form} onSubmit={(data: SignInFormInterface) => loginUser(data, onSuccess)} className={s.form}>
 				<Input name="email" type="email" control={form.control} label={t('general.email')} />
 				<Input name="password" type="password" control={form.control} label={t('general.password')} />
-				<Button type="submit" loading={false} variant="contained">
+				<Button type="submit" loading={false} intent="primary">
 					{t('general.submit')}
 				</Button>
 			</Form>
