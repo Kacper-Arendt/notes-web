@@ -3,7 +3,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 
 // COMPONENTS
 import { FallbackError } from 'src/components/errors/FallbackError';
-import { Menu } from 'src/components/layout/Menu';
+import { Header } from 'src/components/layout/Header';
 
 // STYLES
 import s from 'src/components/layout/appLayout.module.css';
@@ -11,7 +11,7 @@ import s from 'src/components/layout/appLayout.module.css';
 export const AppLayout = ({ children }: { children: ReactNode }) => (
 	<ErrorBoundary FallbackComponent={FallbackError}>
 		<div className={s.appLayout}>
-			<Menu />
+			<Header />
 
 			<ErrorBoundary FallbackComponent={FallbackError}>
 				<main className={s.main}>{children}</main>

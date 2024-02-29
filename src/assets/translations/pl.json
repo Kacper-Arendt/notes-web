@@ -12,7 +12,9 @@
     "add": "Dodaj",
     "createdSuccessfully": "Utworzono pomyślnie",
     "click": "Kliknij",
-    "createNote": "Utwórz notatkę"
+    "createNote": "Utwórz notatkę",
+    "dontHaveAccount": "Nie masz konta?",
+    "haveAccount": "Posiadasz już konto?"
   },
   "errors": {
     "fallbackErrorMessage": "Ups! Coś poszło nie tak",

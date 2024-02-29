@@ -1,24 +1,23 @@
 .toggleNavButton{
-	width: fit-content;
-	overflow: hidden;
-	padding: 0.5rem;
-	
 	display: flex;
 	flex-direction:column;
-	gap: 3px;
+	gap: 4px;
 	justify-content: center;
-	background-color: var(--nav-bg-color);
 	outline: none;
 	border: none;
-	border-radius: var(--border-radius-small);
-	margin-left: auto;
+	color: rgba(235, 235, 245, 0.6);
+	transition: all 100ms;
+}
+
+.toggleNavButton:hover{
+	color: #fff;
 }
 
 .line1,.line2, .line3{	
-	width: 30px;
-	height: 4px;
-	background-color: #000;
-	border-radius: 1rem;
+	width: 25px;
+	height: 3px;
+	background-color: currentColor;
+	border-radius: .25rem;
 	transition: .3s;
 }
 
@@ -32,4 +31,15 @@
 
 .line2Active{
 	transform: translateX(-100px);
+}
+
+
+@media only screen and (min-width: 750px) {
+	.toggleNavButton {
+		gap: 3px;
+	}
+	.line1,.line2, .line3{
+		width: 30px;
+		height: 4px;
+	}
 }

@@ -11,6 +11,8 @@ import { FormWrapper } from 'src/features/auth/components/FormWrapper';
 
 // STYLES
 import s from 'src/features/auth/components/styles.module.css';
+import { Link } from '@tanstack/react-router';
+import { RedirectLink } from 'src/features/auth/components/RedirectLink';
 
 const signInFormSchema = z.object({
 	email: z.string().email(),
@@ -40,6 +42,7 @@ export const LoginForm = ({ onSuccess }: { onSuccess?: () => void }) => {
 					{t('general.submit')}
 				</Button>
 			</Form>
+			<RedirectLink to="/register" text={t('general.dontHaveAccount')} />
 		</FormWrapper>
 	);
 };

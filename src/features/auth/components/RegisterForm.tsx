@@ -11,6 +11,7 @@ import { FormWrapper } from 'src/features/auth/components/FormWrapper';
 
 // STYLES
 import s from 'src/features/auth/components/styles.module.css';
+import { RedirectLink } from 'src/features/auth/components/RedirectLink';
 
 const signUpFormSchema = z
 	.object({
@@ -48,6 +49,7 @@ export const RegisterForm = () => {
 					{t('general.submit')}
 				</Button>
 			</Form>
+			<RedirectLink to="/login" text={t('general.haveAccount')} />
 		</FormWrapper>
 	);
 };

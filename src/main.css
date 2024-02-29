@@ -21,9 +21,9 @@
 
     /* THEME */
     --primary-text-color: var(--primary-color);
-    --backgroun-color: #121212;
+    --backgroun-color: #1C1C1E;
     
-    --nav-bg-color: #3C3B3A;
+    --nav-bg-color: #1C1C1E;
 }
 
 /* RESET */

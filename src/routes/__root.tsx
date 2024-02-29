@@ -12,11 +12,11 @@ interface MyRouterContext {
 
 export const Route = createRootRouteWithContext<MyRouterContext>()({
 	component: () => (
-		<AppLayout>
+		<>
 			<Outlet />
 			<TanStackRouterDevtools />
 			<ToastContainer />
-		</AppLayout>
+		</>
 	),
 	// todo add not found
 	notFoundComponent: () => <p>Not found</p>,

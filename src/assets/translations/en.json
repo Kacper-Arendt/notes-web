@@ -12,7 +12,9 @@
     "add": "Add",
     "createdSuccessfully": "Created successfully",
     "click": "Click",
-    "createNote": "Create note"
+    "createNote": "Create note",
+    "dontHaveAccount": "Dont have an account?",
+    "haveAccount": "Already have an account?"
   },
   "errors": {
     "fallbackErrorMessage": "Oops! Something went wrong",

@@ -7,7 +7,7 @@ import { NotesListContainer } from 'src/features/notes/components/NotesListConta
 export const Notes = () => (
 	<QueryBoundaries>
 		<NotesListContainer>
-			<NotesListHeader />
+			{/*<NotesListHeader />*/}
 			<NotesList />
 		</NotesListContainer>
 	</QueryBoundaries>
