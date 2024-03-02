@@ -2,8 +2,9 @@ import { createContext, useContext, useState } from 'react';
 
 const useNotes = () => {
 	const [activeNote, setActiveNote] = useState<null | string>(null);
+	const [sortBy, setSortBy] = useState<'asc' | 'desc'>('desc');
 
-	return { activeNote, setActiveNote };
+	return { activeNote, setActiveNote, sortBy, setSortBy };
 };
 
 const ContextData = createContext({} as ReturnType<typeof useNotes>);

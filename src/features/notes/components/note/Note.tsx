@@ -10,12 +10,15 @@ import { useNotesContext } from 'src/features/notes/context/notesContext';
 
 // COMPONENTS
 import { NoteForm } from 'src/features/notes/components/note/NoteForm';
+import { DateTime } from 'src/components/dateTime/DateTime';
 
 export const Note = ({ id }: { id: string }) => {
 	const { setActiveNote } = useNotesContext();
 	const { data } = useNoteQuery({ params: { id } });
 	const { mutate: update } = useUpdateNote();
 	const { mutate: remove } = useDeleteNote();
+
+	console.log(data);
 
 	if (!data) return null;
 
@@ -33,6 +36,9 @@ export const Note = ({ id }: { id: string }) => {
 					</button>
 				</div>
 				<NoteForm defaultValues={data} onSubmit={(updatedNote) => update(Object.assign(data, updatedNote))} />
+				<div>
+					<DateTime value={data.updatedOn ?? data.createdOn} className="text-sm text-neutral-500" />
+				</div>
 			</div>
 		</div>
 	);

@@ -3,7 +3,7 @@
     --padding-inline: 2.5rem;
 
     display: flex;
-    height: 100%;
+    height: 100vh;
     width: min(var(--content-max-width), 100% - var(--padding-inline));
     margin: auto;
 }

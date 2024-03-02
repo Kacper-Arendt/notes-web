@@ -12,12 +12,14 @@ import { NotesListItem } from 'src/features/notes/components/NotesListItem';
 // STYLES
 import s from 'src/features/notes/components/styles.module.css';
 import { useAppStore } from 'src/store';
+import { useSortByDates } from 'src/shared/hooks/useSortByDates';
 
 export const NotesList = () => {
 	const controller = new AbortController();
 	const { data } = useNotesQuery({ params: { signal: controller.signal } });
-	const { setActiveNote, activeNote } = useNotesContext();
+	const { setActiveNote, activeNote, sortBy } = useNotesContext();
 	const { toggleSidebarNavOpen } = useAppStore();
+	const sortedByDate = useSortByDates(data ?? [], sortBy);
 
 	const onNoteClick = (id: string) => {
 		setActiveNote(id);
@@ -29,9 +31,9 @@ export const NotesList = () => {
 	return (
 		<div className={s.notesListWrapper}>
 			<div className={s.notesList}>
-				{data.map((note) => (
-					<button type="button" onClick={() => onNoteClick(note.id)}>
-						<NotesListItem key={note.id} {...note} active={note.id === activeNote} />
+				{sortedByDate.map((note) => (
+					<button key={note.id} type="button" onClick={() => onNoteClick(note.id)}>
+						<NotesListItem {...note} active={note.id === activeNote} />
 					</button>
 				))}
 			</div>

@@ -1,5 +1,7 @@
 .notesListHeader{
     display: flex;
+    gap: .75rem;
+    justify-content: end;
     padding: 1rem;
     background-color: var(--nav-bg-color)
 }
