@@ -3,14 +3,14 @@
 	flex-direction:column;
 	width: 100%;
 	height: 100%;
-	max-height: 100%;
+	max-height: 100vh;
 }
 
 .header{
 	display: flex;
 	gap: 1rem;
 	padding: 1rem .5rem;
-	border-bottom: 1px solid #000;
+	border-bottom: 1px solid var(--app-layout-border);
 }
 
 .menuNav{
@@ -31,7 +31,8 @@
 
 .main{
 	flex: 1;
-	overflow: auto;
+	display: flex;
+	overflow: hidden;
 }
 
 @media only screen and (min-width: 750px) {
@@ -46,5 +47,11 @@
 	.navLink{
 		font-size: 1.25rem;
 	}
+
+	.header .toggleMenuButton{
+		display: none;
+	}
+	
+	
 }
 

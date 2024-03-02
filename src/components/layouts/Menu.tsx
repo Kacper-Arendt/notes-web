@@ -14,7 +14,7 @@ import { ToggleMenuButton } from 'src/components/buttons/ToggleMenuButton';
 import { useAuth } from 'src/features/auth/context/authContext';
 
 // STYLES
-import s from 'src/components/layout/appLayout.module.css';
+import s from 'src/components/layouts/appLayout.module.css';
 
 const routes = [
 	// PROTECTED

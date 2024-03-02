@@ -7,7 +7,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 import { FallbackError } from 'src/components/errors/FallbackError';
 
 // STYLES
-import s from 'src/components/layout/appLayout.module.css';
+import s from 'src/components/layouts/appLayout.module.css';
 import { ToggleMenuButton } from 'src/components/buttons/ToggleMenuButton';
 import { useAppStore } from 'src/store';
 
@@ -22,7 +22,11 @@ export const Header = () => {
 	return (
 		<ErrorBoundary FallbackComponent={FallbackError}>
 			<header className={s.header}>
-				<ToggleMenuButton isOpen={sidebarNavOpen} setIsOpen={() => toggleSidebarNavOpen(!sidebarNavOpen)} />
+				<ToggleMenuButton
+					isOpen={sidebarNavOpen}
+					setIsOpen={() => toggleSidebarNavOpen(!sidebarNavOpen)}
+					className={s.toggleMenuButton}
+				/>
 
 				<nav className={clsx(s.menuNav, {})}>
 					{routes.map(({ to, title }) => (

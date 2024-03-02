@@ -22,8 +22,6 @@ import { Route as authTasksImport } from './routes/__auth.tasks'
 
 const publicRegisterLazyImport = createFileRoute('/__public/register')()
 const publicLoginLazyImport = createFileRoute('/__public/login')()
-const authNotesCreateLazyImport = createFileRoute('/__auth/notes/create')()
-const authNotesIdLazyImport = createFileRoute('/__auth/notes/$id')()
 
 // Create/Update Routes
 
@@ -61,20 +59,6 @@ const authTasksRoute = authTasksImport.update({
   getParentRoute: () => authRoute,
 } as any)
 
-const authNotesCreateLazyRoute = authNotesCreateLazyImport
-  .update({
-    path: '/notes/create',
-    getParentRoute: () => authRoute,
-  } as any)
-  .lazy(() => import('./routes/__auth.notes.create.lazy').then((d) => d.Route))
-
-const authNotesIdLazyRoute = authNotesIdLazyImport
-  .update({
-    path: '/notes/$id',
-    getParentRoute: () => authRoute,
-  } as any)
-  .lazy(() => import('./routes/__auth.notes.$id.lazy').then((d) => d.Route))
-
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
@@ -103,26 +87,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof authIndexImport
       parentRoute: typeof authImport
     }
-    '/__auth/notes/$id': {
-      preLoaderRoute: typeof authNotesIdLazyImport
-      parentRoute: typeof authImport
-    }
-    '/__auth/notes/create': {
-      preLoaderRoute: typeof authNotesCreateLazyImport
-      parentRoute: typeof authImport
-    }
   }
 }
 
 // Create and export the route tree
 
 export const routeTree = rootRoute.addChildren([
-  authRoute.addChildren([
-    authTasksRoute,
-    authIndexRoute,
-    authNotesIdLazyRoute,
-    authNotesCreateLazyRoute,
-  ]),
+  authRoute.addChildren([authTasksRoute, authIndexRoute]),
   publicRoute.addChildren([publicLoginLazyRoute, publicRegisterLazyRoute]),
 ])
 

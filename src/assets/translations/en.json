@@ -14,7 +14,9 @@
     "click": "Click",
     "createNote": "Create note",
     "dontHaveAccount": "Dont have an account?",
-    "haveAccount": "Already have an account?"
+    "haveAccount": "Already have an account?",
+    "addNote": "Add note",
+    "content": "Content"
   },
   "errors": {
     "fallbackErrorMessage": "Oops! Something went wrong",

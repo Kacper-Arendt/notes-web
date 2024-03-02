@@ -1,5 +1,5 @@
 import { createFileRoute, Outlet, redirect } from '@tanstack/react-router';
-import { AppLayout } from 'src/components/layout/AppLayout';
+import { AppLayout } from 'src/components/layouts/AppLayout';
 
 export const Route = createFileRoute('/__auth')({
 	beforeLoad: ({ context, location }) => {

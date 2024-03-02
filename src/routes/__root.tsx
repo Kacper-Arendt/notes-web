@@ -3,7 +3,7 @@ import { TanStackRouterDevtools } from '@tanstack/router-devtools';
 import { ToastContainer } from 'react-toastify';
 
 // COMPONENTS
-import { AppLayout } from 'src/components/layout/AppLayout';
+import { AppLayout } from 'src/components/layouts/AppLayout';
 import { AuthContextInterface } from 'src/features/auth/models';
 
 interface MyRouterContext {

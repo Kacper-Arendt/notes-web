@@ -14,7 +14,9 @@
     "click": "Kliknij",
     "createNote": "Utwórz notatkę",
     "dontHaveAccount": "Nie masz konta?",
-    "haveAccount": "Posiadasz już konto?"
+    "haveAccount": "Posiadasz już konto?",
+    "addNote": "Dodaj notatkę",
+    "content": "Treść"
   },
   "errors": {
     "fallbackErrorMessage": "Ups! Coś poszło nie tak",

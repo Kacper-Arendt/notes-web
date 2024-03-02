@@ -1,14 +1,29 @@
 // COMPONENTS
 import { NotesList } from 'src/features/notes/components/NotesList';
-import { QueryBoundaries } from 'src/components/errors/QueryBoundary';
 import { NotesListHeader } from 'src/features/notes/components/NotesListHeader';
-import { NotesListContainer } from 'src/features/notes/components/NotesListContainer';
+import { Layout } from 'src/components/layouts/mainLayout';
+import { CreateNote } from 'src/features/notes/components/createNote';
+import { Note } from 'src/features/notes/components/note';
+
+// CONTEXT
+import { NotesContextProvider, useNotesContext } from 'src/features/notes/context/notesContext';
+
+const NotesContainer = () => {
+	const { activeNote } = useNotesContext();
+
+	return (
+		<Layout>
+			<Layout.LeftSidebar>
+				<NotesListHeader />
+				<NotesList />
+			</Layout.LeftSidebar>
+			<Layout.Main>{activeNote ? <Note id={activeNote} /> : <CreateNote />}</Layout.Main>
+		</Layout>
+	);
+};
 
 export const Notes = () => (
-	<QueryBoundaries>
-		<NotesListContainer>
-			{/*<NotesListHeader />*/}
-			<NotesList />
-		</NotesListContainer>
-	</QueryBoundaries>
+	<NotesContextProvider>
+		<NotesContainer />
+	</NotesContextProvider>
 );

@@ -8,9 +8,6 @@ import { NoteCreateRequestInterface } from 'src/features/notes/models';
 import { Form, Input, useForm } from '@karendt/forms';
 import { Button } from '@karendt/ui';
 
-// STYLES
-import s from 'src/features/notes/components/styles.module.css';
-
 const NoteSchema = z.object({
 	name: z.string().min(2).max(50),
 	content: z.string(),
@@ -18,7 +15,7 @@ const NoteSchema = z.object({
 
 type NoteSchemaInterface = z.infer<typeof NoteSchema>;
 
-export const NoteSaveForm = ({
+export const NoteForm = ({
 	onSubmit,
 	defaultValues,
 }: {
@@ -31,10 +28,11 @@ export const NoteSaveForm = ({
 	});
 
 	return (
-		<Form form={form} onSubmit={onSubmit} className={s.noteSaveForm}>
+		// @ts-ignore
+		<Form form={form} onSubmit={onSubmit} className="flex flex-col gap-3 ">
 			<Input control={form.control} name="name" type="text" />
 			<Input control={form.control} name="content" type="text" />
-			<Button type="submit" intent="primary" className="m-auto">
+			<Button type="submit" intent="primary" className="ml-auto">
 				{t('general.submit')}
 			</Button>
 		</Form>
