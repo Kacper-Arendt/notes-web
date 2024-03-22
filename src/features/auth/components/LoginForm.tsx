@@ -11,7 +11,6 @@ import { FormWrapper } from 'src/features/auth/components/FormWrapper';
 
 // STYLES
 import s from 'src/features/auth/components/styles.module.css';
-import { Link } from '@tanstack/react-router';
 import { RedirectLink } from 'src/features/auth/components/RedirectLink';
 
 const signInFormSchema = z.object({
