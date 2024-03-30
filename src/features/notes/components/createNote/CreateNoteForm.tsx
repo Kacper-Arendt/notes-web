@@ -12,7 +12,7 @@ const NoteSchema = z.object({
 
 type NoteSchemaInterface = z.infer<typeof NoteSchema>;
 
-export const CreateNoteForm = ({ onSubmit }: { onSubmit: (data: NoteSchemaInterface) => void }) => {
+export const CreateNoteForm = ({ onSubmit, isPending }: { onSubmit: (data: NoteSchemaInterface) => void; isPending?: boolean }) => {
 	const form = useForm({
 		schema: NoteSchema,
 		defaultValues: { name: '', content: '' },
@@ -23,7 +23,7 @@ export const CreateNoteForm = ({ onSubmit }: { onSubmit: (data: NoteSchemaInterf
 		<Form form={form} onSubmit={onSubmit} className="flex flex-col gap-3 ">
 			<Input control={form.control} name="name" type="text" label={t('general.name')} />
 			<Input control={form.control} name="content" type="text" label={t('general.content')} />
-			<Button type="submit" intent="primary" className="ml-auto">
+			<Button type="submit" intent="primary" className="ml-auto" loading={isPending}>
 				{t('general.submit')}
 			</Button>
 		</Form>
