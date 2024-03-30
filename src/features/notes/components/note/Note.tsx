@@ -11,14 +11,13 @@ import { useNotesContext } from 'src/features/notes/context/notesContext';
 // COMPONENTS
 import { NoteForm } from 'src/features/notes/components/note/NoteForm';
 import { DateTime } from 'src/components/dateTime/DateTime';
+import { Loader } from 'src/components/loader';
 
 export const Note = ({ id }: { id: string }) => {
 	const { setActiveNote } = useNotesContext();
 	const { data } = useNoteQuery({ params: { id } });
-	const { mutate: update } = useUpdateNote();
-	const { mutate: remove } = useDeleteNote();
-
-	console.log(data);
+	const { mutate: update, isPending: isUpdating } = useUpdateNote();
+	const { mutate: remove, isPending: isDeleting } = useDeleteNote();
 
 	if (!data) return null;
 
@@ -29,13 +28,13 @@ export const Note = ({ id }: { id: string }) => {
 					<button
 						type="button"
 						onClick={() => remove(id, { onSuccess: () => setActiveNote(null) })}
-						aria-label={t('general.add')}
+						aria-label={t('general.remove')}
 						className="text-xl"
 					>
-						<MdDeleteOutline className={clsx('ease-in duration-200 hover:fill-primary')} />
+						{isDeleting ? <Loader size="sm" /> : <MdDeleteOutline className={clsx('ease-in duration-200 hover:fill-primary')} />}
 					</button>
 				</div>
-				<NoteForm defaultValues={data} onSubmit={(updatedNote) => update(Object.assign(data, updatedNote))} />
+				<NoteForm defaultValues={data} onSubmit={(updatedNote) => update(Object.assign(data, updatedNote))} isPending={isUpdating} />
 				<div>
 					<DateTime value={data.updatedOn ?? data.createdOn} className="text-sm text-neutral-500" />
 				</div>
