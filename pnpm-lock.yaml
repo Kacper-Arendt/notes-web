@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@karendt/forms':
-    specifier: ^1.0.6
-    version: 1.0.6(react-dom@18.2.0)(react@18.2.0)(zod@3.22.4)
+    specifier: ^1.0.8
+    version: 1.0.8(react-dom@18.2.0)(react@18.2.0)(zod@3.22.4)
   '@karendt/ui':
     specifier: ^1.0.2
     version: 1.0.2(react-dom@18.2.0)(react@18.2.0)(zod@3.22.4)
@@ -463,8 +463,8 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
 
-  /@karendt/forms@1.0.6(react-dom@18.2.0)(react@18.2.0)(zod@3.22.4):
-    resolution: {integrity: sha512-Y+EtSXFMd0iaoZaSMDJOZkOOB/F0Mzxkh/plzYBZpArFZIePl4fOQBQDxQOZ2jXcQjYUV3S+/Rr4OTWLPLFncQ==}
+  /@karendt/forms@1.0.8(react-dom@18.2.0)(react@18.2.0)(zod@3.22.4):
+    resolution: {integrity: sha512-ZzrZj66/U24THhZlEAdYb6kWF1gKsKOyUNKdXIuq4sunS2hDs2a0Z88ctrryxm1wxSr099BUI2Tcc1INt74qWw==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
