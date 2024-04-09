@@ -36,7 +36,7 @@ export const NotesListHeader = () => {
 	return (
 		<div className={s.notesListHeader}>
 			{buttons.map(({ title, onClick, Icon, active }) => (
-				<button type="button" onClick={onClick} aria-label={t(title)} className="text-xl">
+				<button key={title} type="button" onClick={onClick} aria-label={t(title)} className="text-xl">
 					<Icon className={clsx('ease-in duration-200 hover:fill-primary', { 'fill-primary': active })} />
 				</button>
 			))}

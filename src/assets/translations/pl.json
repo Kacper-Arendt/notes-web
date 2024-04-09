@@ -16,7 +16,9 @@
     "dontHaveAccount": "Nie masz konta?",
     "haveAccount": "Posiadasz już konto?",
     "addNote": "Dodaj notatkę",
-    "content": "Treść"
+    "content": "Treść",
+    "addTask": "Dodaj zadanie",
+    "title": "Tytuł"
   },
   "errors": {
     "fallbackErrorMessage": "Ups! Coś poszło nie tak",

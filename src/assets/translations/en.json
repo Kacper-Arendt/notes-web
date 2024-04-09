@@ -16,7 +16,9 @@
     "dontHaveAccount": "Dont have an account?",
     "haveAccount": "Already have an account?",
     "addNote": "Add note",
-    "content": "Content"
+    "content": "Content",
+    "addTask": "Add task",
+    "title": "Title"
   },
   "errors": {
     "fallbackErrorMessage": "Oops! Something went wrong",
