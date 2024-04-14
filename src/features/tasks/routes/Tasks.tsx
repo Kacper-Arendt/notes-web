@@ -1,20 +1,10 @@
-// REDUX
-
 // HOOKS
 import { TaskContextProvider, useTaskContext } from 'src/features/tasks/context/taskContext';
 
-// MODELS
-
 // COMPONENTS
 import { Layout } from 'src/components/layouts/mainLayout';
-import { TaskListHeader } from 'src/features/tasks/components/TaskListHeader';
-import { TaskList } from 'src/features/tasks/components/TaskList';
-import { TaskListCreate } from 'src/features/tasks/components/TaskListCreate';
-import { TaskItems } from 'src/features/tasks/components/TaskItems';
-
-// STYLES
-
-// UTILS
+import { TaskListHeader, TaskList, TaskListCreate } from 'src/features/tasks/components/taskLists';
+import { TaskItems } from 'src/features/tasks/components/taskItems';
 
 const TasksContainer = () => {
 	const { activeTask } = useTaskContext();
@@ -26,7 +16,7 @@ const TasksContainer = () => {
 					<TaskListHeader />
 					<TaskList />
 				</Layout.LeftSidebar>
-				<Layout.Main>{activeTask ? <TaskItems /> : <TaskListCreate />}</Layout.Main>
+				<Layout.Main>{activeTask ? <TaskItems id={activeTask} /> : <TaskListCreate />}</Layout.Main>
 			</Layout>
 		</>
 	);

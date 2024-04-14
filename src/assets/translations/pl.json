@@ -18,7 +18,8 @@
     "addNote": "Dodaj notatkę",
     "content": "Treść",
     "addTask": "Dodaj zadanie",
-    "title": "Tytuł"
+    "title": "Tytuł",
+    "addTaskList": "Dodaj listę zadań"
   },
   "errors": {
     "fallbackErrorMessage": "Ups! Coś poszło nie tak",

@@ -5,7 +5,7 @@ import { useTaskContext } from 'src/features/tasks/context/taskContext';
 import { useAppStore } from 'src/store';
 
 // COMPONENTS
-import { TaskListItem } from 'src/features/tasks/components/TaskListItem';
+import { TaskListItem } from 'src/features/tasks/components/taskLists/TaskListItem';
 
 export const TaskList = () => {
 	const controller = new AbortController();

@@ -5,14 +5,13 @@ import { api } from 'src/libs/api';
 import { queryClient } from 'src/libs/reactQuery';
 
 // MODELS
-import { ITaskCreateRequest } from 'src/features/tasks/models';
+import { ITask } from 'src/features/tasks/models';
 
-const taskListCreate = async (data: ITaskCreateRequest): Promise<null> => api.post(`api/TaskList`, data);
+const taskUpdate = async (data: ITask): Promise<null> => api.put(`api/TaskItem/${data.taskId}`, data);
 
-export const useCreateTaskList = () =>
+export const useUpdateTask = () =>
 	useMutation({
-		queryKey: ['taskLists'],
-		mutationFn: taskListCreate,
+		mutationFn: taskUpdate,
 		onSuccess: () => {
 			queryClient.invalidateQueries({
 				queryKey: [],

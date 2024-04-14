@@ -10,7 +10,7 @@ export const useDeleteTaskList = () =>
 		mutationFn: taskListDelete,
 		onSuccess: () => {
 			queryClient.invalidateQueries({
-				queryKey: ['TaskList'],
+				queryKey: [],
 			});
 		},
 	});

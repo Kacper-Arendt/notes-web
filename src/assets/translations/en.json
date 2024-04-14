@@ -18,7 +18,8 @@
     "addNote": "Add note",
     "content": "Content",
     "addTask": "Add task",
-    "title": "Title"
+    "title": "Title",
+    "addTaskList": "Add task list"
   },
   "errors": {
     "fallbackErrorMessage": "Oops! Something went wrong",
